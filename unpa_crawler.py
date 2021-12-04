@@ -40,7 +40,7 @@ review_urls = [URL_PREFIX + i for i in root.xpath('//div[contains(@class, "unpa-
 
 
 # 예제
-page = 1111
+page = 1
 decode_query = '''{"advertisements":"empty","CsStartIndex":"%d"}''' % page
 decoded_text = quote(decode_query)
 decoded_text
@@ -51,7 +51,7 @@ decoded_text
 
 from urllib.parse import quote
 urls = []
-page= 0
+page= 1
 while True:
     decode_query = '''{"advertisements":"empty","CsStartIndex":"%d"}''' % page
     decoded_text = quote(decode_query)
@@ -65,7 +65,7 @@ while True:
     data = root_next.xpath('//div[contains(@class, "unpa-card")]/@data-unpa-url')
     if data:
         urls.extend(data)
-        print('''===== url parse end \t page = %d''' % page)
+        print('''===== url parse end \t page = %d''' % page) 
         page += 9
     else:break
 
